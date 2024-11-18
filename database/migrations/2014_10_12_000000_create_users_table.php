@@ -11,7 +11,7 @@ class CreateUsersTable extends Migration
      *
      * @return void
      */
-    public function up()
+    public function up() //↓カラム構造を記載
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id(); // 自動インクリメントの符号なし整数のプライマリキー
@@ -30,7 +30,7 @@ class CreateUsersTable extends Migration
      *
      * @return void
      */
-    public function down()
+    public function down() //「usersテーブルを削除する」(自動生成)
     {
         Schema::dropIfExists('users');
     }
