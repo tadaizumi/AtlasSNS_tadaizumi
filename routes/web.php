@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\PostsController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,8 +26,13 @@ Route::group(['middleware' => 'auth'], function() {
 
   Route::get('profile', [ProfileController::class, 'profile']);
 
-  Route::get('search', [UsersController::class, 'index']);
+  Route::get('search', [UsersController::class, 'search']);
 
   Route::get('follow-list', [PostsController::class, 'index']);
   Route::get('follower-list', [PostsController::class, 'index']);
+
+  Route::get('logout', [AuthenticatedSessionController::class, 'destroy']);
+  Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
+
+  Route::post('post/create', [PostsController::class, 'postCreate']);
 });
