@@ -2,7 +2,7 @@
     <!-- 適切なURLを入力してください -->
 {!! Form::open(['url' => 'register']) !!}
 
-<h2>新規ユーザー登録</h2>
+<p>新規ユーザー登録</p>
 
 @if ($errors->any())
     <div class="alert alert-danger">

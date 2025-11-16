@@ -35,4 +35,9 @@ Route::group(['middleware' => 'auth'], function() {
   Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
 
   Route::post('post/create', [PostsController::class, 'postCreate']);
+
+  Route::post('/post/update',[PostsController::class, 'postUpdate']);
+
+  // Route::get('post/delete',[PostsController::class, 'delete']);
+  Route::get('/post/{id}/delete',[PostsController::class, 'postDelete']); //deleteメソッドを使用するためのルーティング
 });

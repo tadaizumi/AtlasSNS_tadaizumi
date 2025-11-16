@@ -52,4 +52,25 @@ class PostsController extends Controller
         return redirect('top');
     }
 
+    //モーダルでの更新処理を記述する必要があると思う
+    public function postUpdate(Request $request)
+    {
+        // dd($request);
+        $id = $request->input('update_id');
+        $post = $request->input('postUpdate');
+        Post::where('id',$id)->update([
+            'post' => $post,
+        ]);
+
+        return redirect('top');
+    }
+
+
+    //削除処理
+    public function postDelete($id)
+    {
+        Post::where('id', $id)->delete();
+        return redirect('top');
+    }
+
 }

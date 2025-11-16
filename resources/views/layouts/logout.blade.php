@@ -23,15 +23,17 @@
         <link rel="apple-touch-icon-precomposed" href="画像のURL" />
     </head>
     <body>
-        <header>
-            <h1><img src="images/atlas.png"></h1>
-            <p>Social Network Service</p>
-        </header>
-        <div id="container">
-            {{ $slot }}
-        </div>
-        <script src="{{ asset('js/app.js') }}"></script>
-        <script src="JavaScriptファイルのURL"></script>
-        <script src="JavaScriptファイルのURL"></script>
+        <section>
+            <div class="title">
+                <h1><img src="images/atlas.png"></h1>
+                <p class="sub_title">Social Network Service</p>
+            </div>
+            <div id="container" class="register">
+                {{ $slot }}
+            </div>
+            <script src="{{ asset('js/app.js') }}"></script>
+            <script src="JavaScriptファイルのURL"></script>
+            <script src="JavaScriptファイルのURL"></script>
+        </section>
     </body>
 </html>
