@@ -1,7 +1,5 @@
 @charset "utf-8";
 
-html {}
-
 body {
     margin: 0;
 }
@@ -193,7 +191,8 @@ header {
 .post_btn,
 .edit_btn,
 .delete_btn,
-.js-modal-edit {
+.js-modal-edit,
+.search_btn {
     display: flex;
     position: relative;
     justify-content: space-between;
@@ -223,7 +222,8 @@ header {
 .post_btn img,
 .edit_btn img,
 .delete_btn img,
-.js-modal-edit img {
+.js-modal-edit img,
+.search_btn img {
     width: 100%;
     height: auto;
 }
@@ -270,4 +270,37 @@ header {
 .js-modal-edit {
     margin: 0 auto;
     width: 60px;
+}
+
+
+/* user検索 */
+#search-term-display {
+    display: flex;
+    position: relative;
+    left: 500px;
+    bottom: 15px;
+    font-size: large;
+    color: #464646;
+    width: 250px;
+}
+
+.search_btn {
+    width: 52px;
+    top: 25px;
+    left: 350px;
+}
+
+.search_form {
+    display: flex;
+    position: relative;
+    top: 70px;
+    left: 85px;
+    width: 250px;
+    height: 40px;
+}
+
+.search_form_group {
+    border-bottom: solid #ddd 8px;
+    /* margin: 0 -15px; */
+    height: 175px;
 }

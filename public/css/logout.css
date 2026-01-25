@@ -99,6 +99,7 @@ input {
     border-radius: 10px;
     border: none;
     top: 50px;
+    color: black;
 }
 
 input[type=submit] {
@@ -112,6 +113,7 @@ input[type=submit] {
     /* top: 75px; */
     left: 130px;
     margin: 20px 4px 20px 110px;
+    color: #fff;
 }
 
 /* .alert-danger {

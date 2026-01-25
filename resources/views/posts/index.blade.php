@@ -16,11 +16,11 @@
         </form>
 
 
+
         <div class="post-list">
             @foreach ($posts as $post)
             <tr>
-                <!-- アイコンを表示させる <td>{{ $post->user_id }}</td> -->
-
+                <img src="{{ asset('images/' . $post->user->icon_image) }}" alt="プロフィール画像"> <!-- 結合演算子「'文字列' . 変数」 -->
                 <td><p class="post_date">{{ $post->created_at }}</p></td>
                 <td><p>{{ $post->post }}</p></td>
 

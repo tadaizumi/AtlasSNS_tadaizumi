@@ -36,6 +36,7 @@ class RegisteredUserController extends Controller
             'password' => ['required','alpha_num','confirmed','between:8,20'],
         ]);
 
+
         User::create([
             'username' => $request->username,
             'email' => $request->email,

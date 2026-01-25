@@ -35,3 +35,23 @@ $(function () {
     return false;
   });
 });
+
+
+//検索ワードを表示させる
+function getQueryParameter(name) {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get(name);
+}
+
+// ページ読み込み時に実行
+window.onload = function () {
+  const searchTerm = getQueryParameter('keyword'); // 検索パラメータ名に合わせて変更する
+  const searchDisplayArea = document.getElementById('search-term-display');
+
+  if (searchTerm) {
+    // 検索ワードが存在する場合のみ表示
+    if (searchDisplayArea) {
+      searchDisplayArea.textContent = '検索ワード: ' + decodeURIComponent(searchTerm);
+    }
+  }
+};

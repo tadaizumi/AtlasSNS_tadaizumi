@@ -26,7 +26,7 @@ Route::group(['middleware' => 'auth'], function() {
 
   Route::get('profile', [ProfileController::class, 'profile']);
 
-  Route::get('search', [UsersController::class, 'search']);
+  Route::get('search', [UsersController::class, 'search'])->name('search');
 
   Route::get('follow-list', [PostsController::class, 'index']);
   Route::get('follower-list', [PostsController::class, 'index']);
@@ -40,4 +40,9 @@ Route::group(['middleware' => 'auth'], function() {
 
   // Route::get('post/delete',[PostsController::class, 'delete']);
   Route::get('/post/{id}/delete',[PostsController::class, 'postDelete']); //deleteメソッドを使用するためのルーティング
+
+  Route::get('/user/{id}/follow',[UsersController::class,'follow'])->name('follow'); //フォロー
+
+  Route::get('/user/{id}/unfollow',[UsersController::class,'unfollow'])->name('unfollow'); //フォロー解除
+
 });
