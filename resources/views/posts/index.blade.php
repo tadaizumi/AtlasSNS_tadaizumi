@@ -8,7 +8,7 @@
         <form action="/post/create" method="post">
         @csrf
         <div class="form-group">
-            <!-- <input type="text" name="posts" value="" class="form-control" placeholder="著者名" required> -->
+            <img src="{{ asset('images/' . Auth::user()->icon_image) }}" alt="プロフィール画像">
             <textarea name="postContent" rows="4" cols="50" placeholder="投稿内容を入力してください。" class="textarea"></textarea>
             <button type="submit" class="post_btn"><img src="{{ asset('images/post.png') }}" alt="送信" /></button>
         </div>
@@ -17,25 +17,21 @@
 
 
 
-        <div class="post-list">
-            @foreach ($posts as $post)
-            <tr>
-                <img src="{{ asset('images/' . $post->user->icon_image) }}" alt="プロフィール画像"> <!-- 結合演算子「'文字列' . 変数」 -->
-                <td><p class="post_date">{{ $post->created_at }}</p></td>
-                <td><p>{{ $post->post }}</p></td>
 
-                <!-- <div class="container">
-                    <td><button type="" class="edit_btn js-modal-open"><img src="{{ asset('images/edit.png') }}" alt="編集" /></button></td>
-                </div> -->
+            @foreach ($posts as $post)
+            <div class="post-list">
+                <img src="{{ asset('images/' . $post->user->icon_image) }}" alt="プロフィール画像"> <!-- 結合演算子「'文字列' . 変数」 -->
+                <p class="post_name">{{ $post->user->username }}</p>
+                <p class="post_date">{{ $post->created_at }}</p>
+                <p class="post_post">{{ $post->post }}</p>
 
                 <div class="content">
                     <!-- 投稿の編集ボタン -->
-                     <td><a class="edit_btn js-modal-open" href="/post/{{ $post->id }}/update" post="{{ $post->post }}" post_id="{{ $post->id }}"><img src="{{ asset('images/edit.png') }}" alt="編集" /></a></td>
-                </div>
+                     <a class="edit_btn js-modal-open" href="/post/{{ $post->id }}/update" post="{{ $post->post }}" post_id="{{ $post->id }}"><img src="{{ asset('images/edit.png') }}" alt="編集" /></a>
 
-                <!-- <td><a type="submit" class="delete_btn" href="" post="{{ $post->post }}" post_id="{{ $post->id }}" onclick="return confirm('この投稿を削除します。よろしいでしょうか？')"><img src="{{ asset('images/trash.png') }}" alt="削除" /></a></td> -->
-                <td><a class="delete_btn" href="/post/{{ $post->id }}/delete" onclick="return confirm('この投稿を削除します。よろしいでしょうか？')"><img src="{{ asset('images/trash.png') }}" alt="削除" /></a></td>
-            </tr>
+                    <a class="delete_btn" href="/post/{{ $post->id }}/delete" onclick="return confirm('この投稿を削除します。よろしいでしょうか？')"><img src="{{ asset('images/trash.png') }}" alt="削除" /></a>
+                </div>
+            </div>
             @endforeach
 
             <!-- モーダルの中身 -->
@@ -52,8 +48,6 @@
                     <!-- <a class="js-modal-close" href="">閉じる</a> -->
                 </div>
             </div>
-
-        </div>
     </div>
 
 

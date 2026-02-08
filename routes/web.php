@@ -28,6 +28,7 @@ Route::group(['middleware' => 'auth'], function() {
 
   Route::get('search', [UsersController::class, 'search'])->name('search');
 
+  // Route::get('followList', [FollowsController::class, 'followList']);
   Route::get('follow-list', [PostsController::class, 'index']);
   Route::get('follower-list', [PostsController::class, 'index']);
 

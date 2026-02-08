@@ -90,6 +90,7 @@ header {
 }
 
 .menu {
+    display: none;
     position: absolute;
     top: 120px;
     right: 1px;
@@ -131,6 +132,7 @@ header {
 }
 
 .menu.is-open {
+    display: block;
     opacity: 1;
     /* transform: translateY(0); */
     z-index: 10;
@@ -167,25 +169,56 @@ header {
     border-bottom: solid #ddd 8px;
     margin: 0 -15px;
     height: 175px;
+
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.form-group img {
+    width: 50px;
+    height: 50px;
+    margin: 25px 0 0 100px;
 }
 
 .textarea {
     resize: none;
     border: none;
     outline: none;
-    width: 800px;
+    width: 750px;
     height: 120px;
-    margin: 25px 0 20px 150px;
+    margin: 30px 0 0 25px;
 }
 
-/* .post-list {
-    border-bottom: solid #ddd 1px;
-} */
+.post_btn {
+    margin: 100px 0 0 0;
+    width: 50px;
+}
+
+.post-list {
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom: solid #4d4d4d 1px;
+    height: 200px;
+    margin: 0 -15px;
+}
+
+.post-list img {
+    width: 50px;
+    height: 50px;
+    margin: 25px 0 0 150px;
+}
+
+.post_name {
+    margin: 40px 0 0 25px;
+}
 
 .post_date {
-    display: flex;
-    position: relative;
-    left: 1000px;
+    margin: 40px 0 0 500px;
+}
+
+.post_post {
+    margin: 20px 100px 0 225px;
+    width: 450px;
 }
 
 .post_btn,
@@ -193,30 +226,22 @@ header {
 .delete_btn,
 .js-modal-edit,
 .search_btn {
-    display: flex;
-    position: relative;
+    /* position: relative;
     justify-content: space-between;
-    /* 子要素を左右に配置 */
+    子要素を左右に配置
     align-items: center;
-    /* 子要素を下に揃える */
+    子要素を下に揃える */
+    display: flex;
     background-color: #fff;
     border: none;
+    width: 55px;
+    height: 45px;
+}
+
+.edit_btn,
+.delete_btn {
     width: 50px;
     height: 50px;
-}
-
-.post_btn {
-    bottom: 75px;
-    left: 900px;
-}
-
-.edit_btn {
-    left: 1000px;
-}
-
-.delete_btn {
-    left: 1100px;
-    bottom: 90px;
 }
 
 .post_btn img,
@@ -226,13 +251,15 @@ header {
 .search_btn img {
     width: 100%;
     height: auto;
+    margin: 0;
 }
 
 /* post編集 */
 /* 必要に応じて編集しご自身でSNS課題のレイアウトのようにカスタマイズしてください。 */
 .content {
-    margin: 0 auto;
-    padding: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px 50px 0 75px;
 }
 
 .modal {
@@ -275,19 +302,14 @@ header {
 
 /* user検索 */
 #search-term-display {
-    display: flex;
-    position: relative;
-    left: 500px;
-    bottom: 15px;
     font-size: large;
     color: #464646;
     width: 250px;
+    margin: 75px 0 0 75px;
 }
 
 .search_btn {
-    width: 52px;
-    top: 25px;
-    left: 350px;
+    margin: 70px 0 0 100px;
 }
 
 .search_form {
@@ -300,7 +322,54 @@ header {
 }
 
 .search_form_group {
+    /* border-bottom: solid #ddd 8px;
+    margin: 0 -15px;
+    height: 175px; */
+
+    display: flex;
+    flex-wrap: wrap;
     border-bottom: solid #ddd 8px;
     /* margin: 0 -15px; */
     height: 175px;
+}
+
+.user-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 25px 0 25px 350px;
+}
+
+.user-list-content {
+    display: flex;
+    margin: 0 25px 0 0;
+}
+
+.user-list-content img {
+    width: 50px;
+    height: auto;
+}
+
+.user-list-name {
+    margin: 0;
+    width: 250px;
+}
+
+.user-list-btn {
+    display: flex;
+    margin: 0 0 0 50px;
+}
+
+.unfollow-btn {
+    background-color: #ec4747;
+    border-radius: 10px;
+    width: 120px;
+    height: 35px;
+    border: none;
+    color: #fff;
+    font-size: small;
+}
+
+.follow-btn {
+    background-color: #2fa3ff;
 }

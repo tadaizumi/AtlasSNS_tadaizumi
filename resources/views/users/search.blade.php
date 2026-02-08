@@ -14,40 +14,27 @@
 
 </div>
 
-<div class="user-list">
+
 
   @foreach ($users as $posts => $value)
-  <tr>
-    <img src="{{ asset('images/' . $value['icon_image']) }}" alt="プロフィール画像"> <!-- 結合演算子「'文字列' . 変数」 -->
-    <td><p class="">{{ $value->username }}</p></td>
-
-    <!-- <form action="{{ route('follow', ['id' => $value->id]) }}" method="GET">
-    <button type="submit" class="" name="">フォロー</button>
-    </form>
-
-    <form action="{{ route('unfollow', ['id' => $value->id]) }}" method="GET">
-    <button type="submit" class="" name="">フォロー解除</button>
-    </form> -->
-
-    <div class="">
-      @if (auth()->user()->following($value->id))
+  <div class="user-list">
+      <div class="user-list-content"><img src="{{ asset('images/' . $value['icon_image']) }}" alt="プロフィール画像"></div> <!-- 結合演算子「'文字列' . 変数」 -->
+      <div class="user-list-content"><p class="user-list-name">{{ $value->username }}</p></div>
+      <div class="user-list-btn">
+        @if (auth()->user()->following($value->id))
           <form action="{{ route('unfollow', ['id' => $value->id]) }}" method="GET">
             {{ csrf_field() }}
             {{ method_field('DELETE') }}
-            <button type="submit" class="">フォロー解除</button>
+            <button type="submit" class="unfollow-btn">フォロー解除</button>
           </form>
-      @else
+        @else
           <form action="{{ route('follow', ['id' => $value->id]) }}" method="GET">
             {{ csrf_field() }}
-            <button type="submit" class="">フォローする</button>
+            <button type="submit" class="unfollow-btn follow-btn">フォローする</button>
           </form>
-      @endif
-    </div>
-
-  </tr>
+        @endif
+      </div>
+  </div>
   @endforeach
-
-
-</div>
 
 </x-login-layout>

@@ -1,6 +1,7 @@
 <x-login-layout>
 
-
-  <h2>機能を実装していきましょう。</h2>
+  <div class="follow-list">
+    <img src="" alt="プロフィール画像">
+  </div>
 
 </x-login-layout>
