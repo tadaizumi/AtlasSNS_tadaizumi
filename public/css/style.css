@@ -138,12 +138,6 @@ header {
     z-index: 10;
 }
 
-
-
-
-
-
-
 /* main content */
 #row {
     display: flex;
@@ -157,7 +151,48 @@ header {
 #side-bar {
     flex: 0 0 19%;
     border-left: 1px solid #727272;
+
+    a {
+        color: #fff;
+        text-decoration: none;
+        font-size: small;
+    }
 }
+
+/* Page Content */
+#confirm {
+    border-bottom: solid #4d4d4d 1px;
+}
+
+.side-bar-btn {
+    background-color: #186AC9;
+    border-radius: 10px;
+    width: 140px;
+    margin: 20px 0 25px 120px;
+}
+
+.side-bar-search-btn {
+    background-color: #186AC9;
+    border-radius: 10px;
+    width: 150px;
+    height: 40px;
+    margin: 20px 0 0 70px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* post一覧 */
@@ -205,20 +240,20 @@ header {
 .post-list img {
     width: 50px;
     height: 50px;
-    margin: 25px 0 0 150px;
+    margin: 20px 0 0 150px;
 }
 
 .post_name {
-    margin: 40px 0 0 25px;
+    margin: 25px 0 0 25px;
 }
 
 .post_date {
-    margin: 40px 0 0 500px;
+    margin: 15px 0 0 750px;
 }
 
 .post_post {
-    margin: 20px 100px 0 225px;
-    width: 450px;
+    margin: -20px 0 0 225px;
+    width: 750px;
 }
 
 .post_btn,
@@ -372,4 +407,148 @@ header {
 
 .follow-btn {
     background-color: #2fa3ff;
+}
+
+
+/* フォローリスト フォロワーリスト */
+
+.follow-list,
+.follower-list {
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom: solid #ddd 8px;
+    height: 175px;
+    align-items: center;
+}
+
+.follow-list-p {
+    margin: 0 25px 0 100px;
+    font-size: large;
+}
+
+.follow-list img,
+.follower-list img {
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+}
+
+.follow-list-post,
+.follower-list-post {
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom: solid #4d4d4d 1px;
+    height: 125px;
+}
+
+.follow-list-post img,
+.follower-list-post img {
+    width: 50px;
+    height: 50px;
+    margin: 15px 0 0 150px;
+}
+
+.follow_post_name {
+    margin: 20px 0 0 25px;
+}
+
+.follow_post_date {
+    margin: 15px 0 0 750px;
+}
+
+.follow_post_post {
+    margin: -20px 0 0 225px;
+    width: 900px;
+}
+
+
+/* フォロープロフィール */
+
+.follow_profile {
+    border-bottom: solid #ddd 8px;
+    /* margin: 0 -15px; */
+    height: 175px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.follow_profile img {
+    width: 50px;
+    height: 50px;
+    margin: 25px 0 0 100px;
+}
+
+
+.follow_profile_post {
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom: solid #4d4d4d 1px;
+    height: 125px;
+}
+
+.follow_profile_post img {
+    width: 50px;
+    height: 50px;
+    margin: 15px 0 0 150px;
+}
+
+.follow_profile_postName {
+    margin: 20px 0 0 25px;
+}
+
+.follow_profile_postDate {
+    margin: 15px 0 0 750px;
+}
+
+.follow_profile_postContent {
+    margin: -20px 0 0 225px;
+    width: 900px;
+}
+
+.follow_profile_title {
+    margin: 40px 0 0 25px;
+    width: 150px;
+}
+
+.follow_profile_name {
+    margin: 40px 500px 0 10px;
+    width: 250px;
+}
+
+.follow_profileTitle {
+    margin: 0 0 0 175px;
+    width: 150px;
+    height: 50px;
+}
+
+.follow_profile_content {
+    margin: 0 0 0 10px;
+    width: 800px;
+}
+
+/* .m-3{
+    display: flex;
+    flex-wrap: wrap;
+
+} */
+
+.profile_upContent {
+    display: flex;
+    flex-wrap: wrap;
+    width: 400px;
+
+
+    label {
+        margin: 10px 20px 10px 250px;
+    }
+
+    input {
+        width: 700px;
+    }
+}
+
+.profile_edit img {
+    width: 50px;
+    height: 50px;
+    margin: 20px 0 0 150px;
 }

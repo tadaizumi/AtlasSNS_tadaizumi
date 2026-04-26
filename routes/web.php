@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\PostsController;
+use App\Http\Controllers\FollowsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 
@@ -22,15 +23,24 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 require __DIR__ . '/auth.php';
 
 Route::group(['middleware' => 'auth'], function() {
-  Route::get('top', [PostsController::class, 'index']);
+  Route::get('top', [PostsController::class, 'index'])->name('top');
 
   Route::get('profile', [ProfileController::class, 'profile']);
+  Route::post('profile', [ProfileController::class, 'profile'])->name('profile');
+
+  //プロフィール編集
+  // Route::post('/book/update',[BooksController::class, 'update']);
+  // Route::put('/profile', 'UserController@profileUpdate')->name('profile_edit');
+  Route::post('/profile/update', [ProfileController::class, 'profileUpdate'])->name('profile_edit');
+
 
   Route::get('search', [UsersController::class, 'search'])->name('search');
 
-  // Route::get('followList', [FollowsController::class, 'followList']);
-  Route::get('follow-list', [PostsController::class, 'index']);
-  Route::get('follower-list', [PostsController::class, 'index']);
+  Route::get('follow-list', [FollowsController::class, 'followList']);
+  Route::get('follower-list', [FollowsController::class, 'followerList']);
+
+  //↓クリックしたアイコンのユーザーページに遷移
+  Route::get('profile/{id}/show', [ProfileController::class, 'show'])->name('user.show');
 
   Route::get('logout', [AuthenticatedSessionController::class, 'destroy']);
   Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');

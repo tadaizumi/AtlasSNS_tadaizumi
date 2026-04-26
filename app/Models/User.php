@@ -22,6 +22,8 @@ class User extends Authenticatable
         'username',
         'email',
         'password',
+        'bio',
+        'icon_image',
     ];
 
     /**
@@ -46,6 +48,11 @@ class User extends Authenticatable
     public function follows(){
         // 中間テーブルが 'follows'、相手のIDが 'follower_id'
         return $this->belongsToMany(User::class, 'follows', 'following_id', 'followed_id');
+    }
+
+    public function followers(){
+        // 'followed_id' (自分) が 'follower_id' (相手) から見られている
+        return $this->belongsToMany(User::class, 'follows', 'followed_id', 'following_id');
     }
 
     // フォローしているか ->exists() ->first();?

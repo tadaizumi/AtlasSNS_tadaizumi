@@ -55,3 +55,8 @@ window.onload = function () {
     }
   }
 };
+
+
+$(function () {
+  $('#exampleModal').modal();
+});

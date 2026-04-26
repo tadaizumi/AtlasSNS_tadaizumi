@@ -13,7 +13,7 @@ class PostsController extends Controller
 {
     public function index(){
 
-        $posts = Post::get(); //モデルからレコード情報を取得
+        $posts = Post::where('user_id', Auth::id())->latest()->get();
         return view('posts.index',['posts'=>$posts]); //viewヘルパ 指定したphpファイルを画面に表示する
         // return view('posts.index');
 

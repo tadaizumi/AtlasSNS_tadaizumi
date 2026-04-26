@@ -8,7 +8,7 @@
         <form action="/post/create" method="post">
         @csrf
         <div class="form-group">
-            <img src="{{ asset('images/' . Auth::user()->icon_image) }}" alt="プロフィール画像">
+            <img src="{{ Storage::url(Auth::user()->icon_image) }}" alt="プロフィール画像">
             <textarea name="postContent" rows="4" cols="50" placeholder="投稿内容を入力してください。" class="textarea"></textarea>
             <button type="submit" class="post_btn"><img src="{{ asset('images/post.png') }}" alt="送信" /></button>
         </div>
@@ -20,7 +20,7 @@
 
             @foreach ($posts as $post)
             <div class="post-list">
-                <img src="{{ asset('images/' . $post->user->icon_image) }}" alt="プロフィール画像"> <!-- 結合演算子「'文字列' . 変数」 -->
+                <img src="{{ Storage::url($post->user->icon_image) }}" alt="プロフィール画像"> <!-- 結合演算子「'文字列' . 変数」 -->
                 <p class="post_name">{{ $post->user->username }}</p>
                 <p class="post_date">{{ $post->created_at }}</p>
                 <p class="post_post">{{ $post->post }}</p>
