@@ -42,4 +42,13 @@ class UsersController extends Controller
         Follow::where('followed_id', $id)->delete();
         return redirect('search');
     }
+
+    //フォロー数フォロワー数表示
+    // public function followCount($id)
+    // {
+    //     $user = Auth::user();
+    //     $followingCount = $user->followings()->count(); // フォロー数
+    //     $followerCount = $user->followers()->count();   // フォロワー数
+    //     return view('top', compact('user', 'followingCount', 'followerCount'));
+    // }
 }

@@ -43,7 +43,7 @@
 
 
       <div class="">
-        {{Form::submit(' 更新する ', ['class'=>'btn btn-success rounded-pill'])}}
+        {{Form::submit(' 更新する ', ['class'=>'btn profile_btn rounded-pill'])}}
       </div>
 
     </div>

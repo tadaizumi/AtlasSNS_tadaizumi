@@ -36,8 +36,8 @@ Route::group(['middleware' => 'auth'], function() {
 
   Route::get('search', [UsersController::class, 'search'])->name('search');
 
-  Route::get('follow-list', [FollowsController::class, 'followList']);
-  Route::get('follower-list', [FollowsController::class, 'followerList']);
+  Route::get('follow-list', [FollowsController::class, 'followList'])->name('followList');
+  Route::get('follower-list', [FollowsController::class, 'followerList'])->name('followerList');
 
   //↓クリックしたアイコンのユーザーページに遷移
   Route::get('profile/{id}/show', [ProfileController::class, 'show'])->name('user.show');

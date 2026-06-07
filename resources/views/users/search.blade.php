@@ -18,7 +18,10 @@
 
   @foreach ($users as $posts => $value)
   <div class="user-list">
-      <div class="user-list-content"><img src="{{ asset('images/' . $value['icon_image']) }}" alt="プロフィール画像"></div> <!-- 結合演算子「'文字列' . 変数」 -->
+      <div class="user-list-content">
+        <a href="{{ route('user.show', ['id' => $value->id]) }}"><img src="{{ Storage::url($value->icon_image) }}" alt="プロフィール画像"></a>
+        <!-- <img src="{{ Storage::url($value->icon_image) }}" alt="プロフィール画像"> -->
+      </div>
       <div class="user-list-content"><p class="user-list-name">{{ $value->username }}</p></div>
       <div class="user-list-btn">
         @if (auth()->user()->following($value->id))

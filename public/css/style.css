@@ -15,6 +15,12 @@ header {
     z-index: 100;
 }
 
+.head-icon {
+    width: 50px;
+    height: 50px;
+    margin: 20px 0 0 1310px;
+}
+
 #title {
     /* position: fixed;
     top: 0; */
@@ -136,6 +142,7 @@ header {
     opacity: 1;
     /* transform: translateY(0); */
     z-index: 10;
+    width: 19vw;
 }
 
 /* main content */
@@ -145,12 +152,12 @@ header {
 }
 
 #container {
-    flex: 0 0 80%;
+    width: 80vw;
 }
 
 #side-bar {
-    flex: 0 0 19%;
     border-left: 1px solid #727272;
+    min-height: 100vh;
 
     a {
         color: #fff;
@@ -162,6 +169,19 @@ header {
 /* Page Content */
 #confirm {
     border-bottom: solid #4d4d4d 1px;
+}
+
+.side-bar-title {
+    margin: 15px 0 0 10px;
+}
+
+.side-bar-follow {
+    display: flex;
+    margin: 15px 0 0 10px;
+}
+
+.side-bar-followNo {
+    margin: 0 0 0 30px;
 }
 
 .side-bar-btn {
@@ -177,18 +197,12 @@ header {
     width: 150px;
     height: 40px;
     margin: 20px 0 0 70px;
+
+    a {
+        align-items: center;
+        justify-content: center;
+    }
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -230,29 +244,40 @@ header {
 }
 
 .post-list {
-    display: flex;
-    flex-wrap: wrap;
+    /* display: flex; */
+    /* flex-wrap: wrap; */
     border-bottom: solid #4d4d4d 1px;
-    height: 200px;
+    /* height: 200px; */
     margin: 0 -15px;
+
+    img {
+        width: 50px;
+        height: 50px;
+        margin: 10px 0 0 150px;
+    }
 }
 
-.post-list img {
-    width: 50px;
-    height: 50px;
-    margin: 20px 0 0 150px;
+.post-list1 {
+    display: flex;
+}
+
+.post-list2 {
+    display: flex;
+    margin-bottom: 10px;
 }
 
 .post_name {
+    width: 500px;
     margin: 25px 0 0 25px;
 }
 
 .post_date {
-    margin: 15px 0 0 750px;
+    width: 400px;
+    margin: 10px 0 0 550px;
 }
 
 .post_post {
-    margin: -20px 0 0 225px;
+    margin: 10px 0 0 225px;
     width: 750px;
 }
 
@@ -293,7 +318,6 @@ header {
 /* 必要に応じて編集しご自身でSNS課題のレイアウトのようにカスタマイズしてください。 */
 .content {
     display: flex;
-    flex-wrap: wrap;
     margin: 20px 50px 0 75px;
 }
 
@@ -435,10 +459,10 @@ header {
 
 .follow-list-post,
 .follower-list-post {
-    display: flex;
-    flex-wrap: wrap;
+    /* display: flex;
+    flex-wrap: wrap; */
     border-bottom: solid #4d4d4d 1px;
-    height: 125px;
+    /* height: 125px; */
 }
 
 .follow-list-post img,
@@ -448,7 +472,7 @@ header {
     margin: 15px 0 0 150px;
 }
 
-.follow_post_name {
+/* .follow_post_name {
     margin: 20px 0 0 25px;
 }
 
@@ -459,7 +483,7 @@ header {
 .follow_post_post {
     margin: -20px 0 0 225px;
     width: 900px;
-}
+} */
 
 
 /* フォロープロフィール */
@@ -480,10 +504,10 @@ header {
 
 
 .follow_profile_post {
-    display: flex;
-    flex-wrap: wrap;
+    /* display: flex;
+    flex-wrap: wrap; */
     border-bottom: solid #4d4d4d 1px;
-    height: 125px;
+    /* height: 125px; */
 }
 
 .follow_profile_post img {
@@ -492,18 +516,18 @@ header {
     margin: 15px 0 0 150px;
 }
 
-.follow_profile_postName {
+/* .follow_profile_postName {
     margin: 20px 0 0 25px;
-}
+} */
 
-.follow_profile_postDate {
-    margin: 15px 0 0 750px;
-}
+/* .follow_profile_date {
+    margin: 15px 0 0 225px;
+} */
 
-.follow_profile_postContent {
+/* .follow_profile_postContent {
     margin: -20px 0 0 225px;
     width: 900px;
-}
+} */
 
 .follow_profile_title {
     margin: 40px 0 0 25px;
@@ -515,6 +539,10 @@ header {
     width: 250px;
 }
 
+.follow_profile-btn {
+    margin: 0 0 0 -250px;
+}
+
 .follow_profileTitle {
     margin: 0 0 0 175px;
     width: 150px;
@@ -523,32 +551,43 @@ header {
 
 .follow_profile_content {
     margin: 0 0 0 10px;
-    width: 800px;
+    width: 700px;
 }
 
-/* .m-3{
-    display: flex;
-    flex-wrap: wrap;
-
-} */
+.profile_update {
+    position: absolute;
+    margin-top: -50px;
+}
 
 .profile_upContent {
     display: flex;
     flex-wrap: wrap;
-    width: 400px;
-
+    margin-bottom: 20px;
 
     label {
-        margin: 10px 20px 10px 250px;
+        width: 200px;
+        margin: 10px 20px 10px 300px;
     }
 
     input {
-        width: 700px;
+        width: 450px;
     }
+}
+
+.profile_edit {
+    position: relative
 }
 
 .profile_edit img {
     width: 50px;
     height: 50px;
-    margin: 20px 0 0 150px;
+    margin: 70px 0 0 200px;
+}
+
+.profile_btn {
+    color: #fff;
+    background-color: #ec4747;
+    border-color: #ec4747;
+    width: 150px;
+    margin: 0 0 0 440px;
 }

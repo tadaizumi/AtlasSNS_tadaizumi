@@ -20,16 +20,24 @@
 
             @foreach ($posts as $post)
             <div class="post-list">
-                <img src="{{ Storage::url($post->user->icon_image) }}" alt="プロフィール画像"> <!-- 結合演算子「'文字列' . 変数」 -->
-                <p class="post_name">{{ $post->user->username }}</p>
-                <p class="post_date">{{ $post->created_at }}</p>
-                <p class="post_post">{{ $post->post }}</p>
+                <div class="post-list1">
+                    <!-- <img src="{{ Storage::url($post->user->icon_image) }}" alt="プロフィール画像"> 結合演算子「'文字列' . 変数」 -->
+                    <a href="{{ route('user.show', ['id' => $post->user->id]) }}"><img src="{{ Storage::url($post->user->icon_image) }}" alt="プロフィール画像"></a>
+                    <p class="post_name">{{ $post->user->username }}</p>
+                    <p class="post_date">{{ $post->created_at }}</p>
+                </div>
 
-                <div class="content">
-                    <!-- 投稿の編集ボタン -->
-                     <a class="edit_btn js-modal-open" href="/post/{{ $post->id }}/update" post="{{ $post->post }}" post_id="{{ $post->id }}"><img src="{{ asset('images/edit.png') }}" alt="編集" /></a>
-
-                    <a class="delete_btn" href="/post/{{ $post->id }}/delete" onclick="return confirm('この投稿を削除します。よろしいでしょうか？')"><img src="{{ asset('images/trash.png') }}" alt="削除" /></a>
+                <div class="post-list2">
+                    <p class="post_post">{{ $post->post }}</p>
+                    {{-- 自分の投稿の場合のみ編集・削除ボタンを表示 --}}
+                    @if ($post->user_id === Auth::id())
+                    <div class="content">
+                        <!-- 投稿の編集ボタン -->
+                        <a class="edit_btn js-modal-open" href="/post/{{ $post->id }}/update" post="{{ $post->post }}" post_id="{{ $post->id }}"><img src="{{ asset('images/edit.png') }}" alt="編集" /></a>
+                        <!-- 投稿の削除ボタン -->
+                        <a class="delete_btn" href="/post/{{ $post->id }}/delete" onclick="return confirm('この投稿を削除します。よろしいでしょうか？')"><img src="{{ asset('images/trash.png') }}" alt="削除" onmouseover="this.src='images/trash-h.png'"onmouseout="this.src='images/trash.png'"></a> <!-- ホバーした時 ロールオーバー属性 -->
+                    </div>
+                    @endif
                 </div>
             </div>
             @endforeach

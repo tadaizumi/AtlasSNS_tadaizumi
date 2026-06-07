@@ -13,31 +13,18 @@ class PostsController extends Controller
 {
     public function index(){
 
-        $posts = Post::where('user_id', Auth::id())->latest()->get();
-        return view('posts.index',['posts'=>$posts]); //viewヘルパ 指定したphpファイルを画面に表示する
-        // return view('posts.index');
+        // $posts = Post::where('user_id', Auth::id())->latest()->get();
+        // return view('posts.index',['posts'=>$posts]); //viewヘルパ 指定したphpファイルを画面に表示する
 
-        // これがトップを表示させるやつなので
-        // 投稿してきた一覧を表示させる処理を書く
+        $users = Auth::user(); //ログインユーザーの情報
+        $follows = $users->follows()->pluck('followed_id'); // フォローしているユーザーのID配列を取得
+        $follows->push($users->id); // 自分のIDも配列に追加
+
+        $posts = Post::query()->whereIn('user_id', $follows)->latest()->get(); // 自分とフォローしている人の投稿を取得
+
+        return view('posts.index',['posts'=>$posts]); //viewヘルパ 指定したphpファイルを画面に表示する
     }
 
-    // public function index(Request $request)
-    // {
-    //     // $request->validate([
-    //     //     'postContent' => 'required|unique:post|max:400',
-    //     // ]);
-    //     // $post->user_id = $request->user()->id;
-    //     // user_idを指定する必要があるらしい
-    //     $id = Auth::id();
-    //     $post = $request->input('postContent');
-    //     Post::create([
-    //         'user_id' => $id,
-    //         'post' => $post,
-    //     ]);
-    //     return back();
-    // }
-
-    // なんかつかえそう
     // 投稿登録処理
     public function postCreate(Request $request)
     {

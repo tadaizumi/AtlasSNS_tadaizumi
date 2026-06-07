@@ -44,11 +44,11 @@ class ProfileController extends Controller
     public function profileUpdate(Request $request, User $user)
     {
         $request->validate([
-            'username' => 'required|string|max:255',
-            'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore(Auth::id())],
+            'username' => 'required|string|between:2,12',
+            'email' => ['required', 'string', 'email', 'between:5,40', Rule::unique('users')->ignore(Auth::id())],
             'password' => ['required','alpha_num','confirmed','between:8,20'],
-            'bio' => 'string|max:255',
-            'icon_image' => '',
+            'bio' => 'string|max:150',
+            'icon_image' => 'file|mimes:jpg,png,bmp,gif,svg',
         ]);
 
         try {

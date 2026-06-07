@@ -14,5 +14,8 @@
                 <li><a href="{{ route('logout') }}">ログアウト</a></li>
             </ul>
         </nav>
+        <div class="">
+            <img class="head-icon" src="{{ Storage::url(Auth::user()->icon_image) }}" alt="プロフィール画像">
+        </div>
     </div>
 </div>

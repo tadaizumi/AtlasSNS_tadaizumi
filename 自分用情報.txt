@@ -1,8 +1,8 @@
-follow1@atlas.com
+×follow1@atlas.com
 followlist
 フォローリスト1
 
-follow@atlas.com
+×follow@atlas.com
 followlist
 フォローリスト
 
@@ -13,3 +13,7 @@ wawon12345
 ◎わおん
 wawon@atlas.com
 wawon12346
+
+◎をん
+woon@atlas.com
+woon1156
