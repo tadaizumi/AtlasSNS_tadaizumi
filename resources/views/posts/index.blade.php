@@ -9,7 +9,7 @@
         @csrf
         <div class="form-group">
             <img src="{{ Storage::url(Auth::user()->icon_image) }}" alt="プロフィール画像">
-            <textarea name="postContent" rows="4" cols="50" placeholder="投稿内容を入力してください。" class="textarea"></textarea>
+            <textarea name="postContent" minlength="1" maxlength="150" placeholder="投稿内容を入力してください。" class="textarea" required></textarea>
             <button type="submit" class="post_btn"><img src="{{ asset('images/post.png') }}" alt="送信" /></button>
         </div>
         <!-- <button type="submit" class="btn btn-success pull-right" href="/public/images/post.png">画像</button> -->
@@ -47,7 +47,7 @@
                 <div class="modal__bg js-modal-close"></div>
                 <div class="modal__content">
                     <form action="/post/update" method="post"> <!-- ←裏の処理を書く -->
-                        <textarea name="postUpdate" rows="4" cols="50" class="modal_post"></textarea>
+                        <textarea name="postUpdate" minlength="1" maxlength="150"  class="modal_post" required></textarea>
                         <input type="hidden" name="update_id" class="modal_id" value="">
                         <!-- <input type="submit" value="更新" class="js-modal-edit"><img src="{{ asset('images/edit.png') }}" alt="編集" /> -->
                         <button type="submit" class="js-modal-edit"><img src="{{ asset('images/edit.png') }}" alt="編集" /></button>

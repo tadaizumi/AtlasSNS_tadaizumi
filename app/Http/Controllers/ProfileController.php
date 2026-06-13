@@ -47,7 +47,7 @@ class ProfileController extends Controller
             'username' => 'required|string|between:2,12',
             'email' => ['required', 'string', 'email', 'between:5,40', Rule::unique('users')->ignore(Auth::id())],
             'password' => ['required','alpha_num','confirmed','between:8,20'],
-            'bio' => 'string|max:150',
+            'bio' => 'nullable|string|max:150',
             'icon_image' => 'file|mimes:jpg,png,bmp,gif,svg',
         ]);
 

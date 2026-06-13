@@ -17,7 +17,7 @@ class UsersController extends Controller
         if(!empty($keyword)){
             $users = User::where('username', 'LIKE', "%{$keyword}%")->get(); //条件指定にてEloquent操作
         }else{
-            $users = User::all();
+            $users = User::where('id', '!=', Auth::id())->get();
         }
         return view('users.search',['users'=>$users]);
     }
