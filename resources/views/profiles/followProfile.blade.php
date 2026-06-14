@@ -24,7 +24,12 @@
 
     <div class="follow_profile">
       <div class="post-list1">
-        <img src="{{ Storage::url($user->icon_image) }}" alt="プロフィール画像">
+        @if ($user->icon_image === null)
+          <img src="{{ asset('icon1.png') }}" alt="プロフィール画像">
+        @else
+          <img src="{{ Storage::url($user->icon_image) }}" alt="プロフィール画像">
+        @endif
+
         <p class="post_name follow_profile_title">ユーザー名</p>
         <p class="follow_profile_name">{{ $user->username }}</p>
       </div>
@@ -59,7 +64,11 @@
 
     <div class="follow_profile_post">
       <div class="post-list1">
-        <img src="{{ Storage::url($post->user->icon_image) }}" alt="プロフィール画像">
+        @if ($post->user->icon_image === null)
+          <img src="{{ asset('icon1.png') }}" alt="プロフィール画像">
+        @else
+          <img src="{{ Storage::url($post->user->icon_image) }}" alt="プロフィール画像">
+        @endif
         <p class="post_name">{{ $post->user->username }}</p>
         <p class="post_date">{{ $post->created_at }}</p>
       </div>

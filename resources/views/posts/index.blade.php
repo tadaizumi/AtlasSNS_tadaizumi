@@ -8,7 +8,11 @@
         <form action="/post/create" method="post">
         @csrf
         <div class="form-group">
-            <img src="{{ Storage::url(Auth::user()->icon_image) }}" alt="プロフィール画像">
+            @if (Auth::user()->icon_image === null)
+               <img src="{{ asset('icon1.png') }}" alt="プロフィール画像">
+            @else
+               <img src="{{ Storage::url(Auth::user()->icon_image) }}" alt="プロフィール画像">
+            @endif
             <textarea name="postContent" minlength="1" maxlength="150" placeholder="投稿内容を入力してください。" class="textarea" required></textarea>
             <button type="submit" class="post_btn"><img src="{{ asset('images/post.png') }}" alt="送信" /></button>
         </div>
@@ -22,7 +26,13 @@
             <div class="post-list">
                 <div class="post-list1">
                     <!-- <img src="{{ Storage::url($post->user->icon_image) }}" alt="プロフィール画像"> 結合演算子「'文字列' . 変数」 -->
-                    <a href="{{ route('user.show', ['id' => $post->user->id]) }}"><img src="{{ Storage::url($post->user->icon_image) }}" alt="プロフィール画像"></a>
+                    <a href="{{ route('user.show', ['id' => $post->user->id]) }}">
+                        @if ($post->user->icon_image === null)
+                          <img src="{{ asset('icon1.png') }}" alt="プロフィール画像">
+                        @else
+                          <img src="{{ Storage::url($post->user->icon_image) }}" alt="プロフィール画像">
+                        @endif
+                    </a>
                     <p class="post_name">{{ $post->user->username }}</p>
                     <p class="post_date">{{ $post->created_at }}</p>
                 </div>

@@ -1,6 +1,11 @@
 <x-login-layout>
   <div class="profile_edit">
-    <img src="{{ Storage::url(Auth::user()->icon_image) }}" alt="プロフィール画像">
+    @if (Auth::user()->icon_image === null)
+        <img src="{{ asset('icon1.png') }}" alt="プロフィール画像">
+    @else
+        <img src="{{ Storage::url(Auth::user()->icon_image) }}" alt="プロフィール画像">
+    @endif
+
     <form action="{{ route('profile_edit') }}" method="POST" enctype="multipart/form-data">
     @csrf
 

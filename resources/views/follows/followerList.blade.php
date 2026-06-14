@@ -5,7 +5,11 @@
     @foreach ($followers as $follower)
       <!-- {{-- アイコンをクリックするとプロフィールページに遷移 --}} -->
       <a href="{{ route('user.show', ['id' => $follower->id]) }}">
-        <img src="{{ Storage::url($follower->icon_image) }}" alt="プロフィール画像">
+        @if ($follower->icon_image === null)
+          <img src="{{ asset('icon1.png') }}" alt="プロフィール画像">
+        @else
+          <img src="{{ Storage::url($follower->icon_image) }}" alt="プロフィール画像">
+        @endif
       </a>
     @endforeach
   </div>
@@ -26,7 +30,14 @@
 
     <div class="follow_profile_post">
       <div class="post-list1">
-        <a href="{{ route('user.show', ['id' => $post->user->id]) }}"><img src="{{ Storage::url($post->user->icon_image) }}" alt="プロフィール画像"></a>
+        <a href="{{ route('user.show', ['id' => $post->user->id]) }}">
+          @if ($post->user->icon_image === null)
+               <img src="{{ asset('icon1.png') }}" alt="プロフィール画像">
+          @else
+              <img src="{{ Storage::url($post->user->icon_image) }}" alt="プロフィール画像">
+          @endif
+
+        </a>
         <!-- <img src="{{ Storage::url($post->user->icon_image) }}" alt="プロフィール画像"> -->
         <p class="post_name">{{ $post->user->username }}</p>
         <p class="post_date follow_profile_date">{{ $post->created_at }}</p>
