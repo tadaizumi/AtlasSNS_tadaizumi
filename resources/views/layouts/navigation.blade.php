@@ -12,8 +12,8 @@
                 <li><a href="{{ route('logout') }}">ログアウト</a></li>
             </ul>
         </nav>
-        @if (Auth::user()->icon_image === null)
-            <img class="head-icon" src="{{ asset('icon1.png') }}" alt="プロフィール画像">
+        @if (Auth::user()->icon_image === 'icon1.png')
+            <img class="head-icon" src="{{ asset('images/icon1.png') }}" alt="プロフィール画像">
         @else
             <img class="head-icon" src="{{ Storage::url(Auth::user()->icon_image) }}" alt="プロフィール画像">
         @endif

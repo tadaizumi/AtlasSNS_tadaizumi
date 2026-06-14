@@ -1,7 +1,7 @@
 <x-login-layout>
   <div class="profile_edit">
-    @if (Auth::user()->icon_image === null)
-        <img src="{{ asset('icon1.png') }}" alt="プロフィール画像">
+    @if (Auth::user()->icon_image === 'icon1.png')
+        <img src="{{ asset('images/icon1.png') }}" alt="プロフィール画像">
     @else
         <img src="{{ Storage::url(Auth::user()->icon_image) }}" alt="プロフィール画像">
     @endif

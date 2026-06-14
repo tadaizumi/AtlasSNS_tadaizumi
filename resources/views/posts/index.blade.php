@@ -8,8 +8,8 @@
         <form action="/post/create" method="post">
         @csrf
         <div class="form-group">
-            @if (Auth::user()->icon_image === null)
-               <img src="{{ asset('icon1.png') }}" alt="プロフィール画像">
+            @if (Auth::user()->icon_image === 'icon1.png')
+               <img src="{{ asset('images/icon1.png') }}" alt="プロフィール画像">
             @else
                <img src="{{ Storage::url(Auth::user()->icon_image) }}" alt="プロフィール画像">
             @endif
@@ -27,8 +27,8 @@
                 <div class="post-list1">
                     <!-- <img src="{{ Storage::url($post->user->icon_image) }}" alt="プロフィール画像"> 結合演算子「'文字列' . 変数」 -->
                     <a href="{{ route('user.show', ['id' => $post->user->id]) }}">
-                        @if ($post->user->icon_image === null)
-                          <img src="{{ asset('icon1.png') }}" alt="プロフィール画像">
+                        @if ($post->user->icon_image === 'icon1.png')
+                          <img src="{{ asset('images/icon1.png') }}" alt="プロフィール画像">
                         @else
                           <img src="{{ Storage::url($post->user->icon_image) }}" alt="プロフィール画像">
                         @endif
